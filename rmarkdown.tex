@@ -1,0 +1,550 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={projet\_R \_2023},
+  pdfauthor={Dieynaba},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{projet\_R \_2023}
+\author{Dieynaba}
+\date{2023-07-20}
+
+\begin{document}
+\maketitle
+
+\hypertarget{partie-1}{%
+\subsection{1 partie 1}\label{partie-1}}
+
+L'objectif de ce projet est que nous appliquons les outils que nous
+avons étudiés dans le cours du logiciel statistique R, dans le cas d'une
+étude de cas réelle.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#les packages essentiels pour le projet}
+\FunctionTok{library}\NormalTok{(}\StringTok{"haven"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"readxl"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"gtsummary"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"knitr"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(sf)}
+\FunctionTok{library}\NormalTok{(st)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{importation-et-mise-en-forme}{%
+\subsection{1.2 Importation et mise en
+forme}\label{importation-et-mise-en-forme}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Base\_partie1}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Base\_Partie 1.xlsx"}\NormalTok{) }\CommentTok{\#on importe la base}
+\NormalTok{projet}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(Base\_partie1)}\CommentTok{\#création du dataframe}
+\NormalTok{base1}\OtherTok{\textless{}{-}}\NormalTok{projet}\SpecialCharTok{|\textgreater{}}\NormalTok{ dplyr }\SpecialCharTok{::} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"key"}\NormalTok{))}\CommentTok{\#selection de toutes les variables de la base sauf la variable key}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#Tableau qui résume les valeurs manquantes par variables
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{val\_manquantes}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{nbr\_valmanquantes=}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(projet)),}\AttributeTok{frequency=}\NormalTok{(}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(projet)}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(projet))}\SpecialCharTok{*}\DecValTok{100}\NormalTok{))}
+\FunctionTok{kable}\NormalTok{(val\_manquantes)}\CommentTok{\# création du tableau qui résume les valeurs manquantes par variables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrr@{}}
+\toprule()
+& nbr\_valmanquantes & frequency \\
+\midrule()
+\endhead
+key & 0 & 0.0 \\
+q1 & 0 & 0.0 \\
+q2 & 0 & 0.0 \\
+q23 & 0 & 0.0 \\
+q24 & 0 & 0.0 \\
+q24a\_1 & 0 & 0.0 \\
+q24a\_2 & 0 & 0.0 \\
+q24a\_3 & 0 & 0.0 \\
+q24a\_4 & 0 & 0.0 \\
+q24a\_5 & 0 & 0.0 \\
+q24a\_6 & 0 & 0.0 \\
+q24a\_7 & 0 & 0.0 \\
+q24a\_9 & 0 & 0.0 \\
+q24a\_10 & 0 & 0.0 \\
+q25 & 0 & 0.0 \\
+q26 & 0 & 0.0 \\
+q12 & 0 & 0.0 \\
+q14b & 1 & 0.4 \\
+q16 & 1 & 0.4 \\
+q17 & 131 & 52.4 \\
+q19 & 120 & 48.0 \\
+q20 & 0 & 0.0 \\
+filiere\_1 & 0 & 0.0 \\
+filiere\_2 & 0 & 0.0 \\
+filiere\_3 & 0 & 0.0 \\
+filiere\_4 & 0 & 0.0 \\
+q8 & 0 & 0.0 \\
+q81 & 0 & 0.0 \\
+gps\_menlatitude & 0 & 0.0 \\
+gps\_menlongitude & 0 & 0.0 \\
+submissiondate & 0 & 0.0 \\
+start & 0 & 0.0 \\
+today & 0 & 0.0 \\
+\bottomrule()
+\end{longtable}
+
+Au regard du tableau ci\_dessus on voit que la variable key ne contient
+aucune de valeur manquante.
+
+\hypertarget{cruxe9ation-des-variables}{%
+\subsection{1.3 Création des
+variables}\label{cruxe9ation-des-variables}}
+
+Avec la fonction rename(), on renomme nos trois variables que l'on met
+dans un nouveau dataframe, puis on utilise la fonction mutate() pour
+créer la variable sexe.La création du dataframe Langues se fait
+facilement en appliquant la fonction select() à notre base.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdata}\OtherTok{\textless{}{-}}\NormalTok{projet}\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#création d\textquotesingle{}un nouveau dataframe où les 3variables seront renommés}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{region=}\NormalTok{q1,}\AttributeTok{departement=}\NormalTok{q2,}\AttributeTok{sexe=}\NormalTok{q23)}
+\NormalTok{newdata}\OtherTok{\textless{}{-}}\NormalTok{newdata}\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# création de la variable sexe2 en conservant notre base initiale}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sexe\_2=}\FunctionTok{ifelse}\NormalTok{(sexe}\SpecialCharTok{==}\StringTok{"Femme"}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\NormalTok{Langues}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(newdata,}\StringTok{\textquotesingle{}key\textquotesingle{}}\NormalTok{,}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{\textquotesingle{}q24a\textquotesingle{}}\NormalTok{))}\CommentTok{\#création du dataframe Langues}
+\end{Highlighting}
+\end{Shaded}
+
+pour créer la variable parle
+
+\hypertarget{statistique-descriptive}{%
+\subsection{Statistique descriptive}\label{statistique-descriptive}}
+
+faisons un statistique descriptive sur les variables de notre choix.
+Dans cette partie, il s'agira de voir la répartion des PME suivant la
+region et le sexe du dirigeant de la PME. le tableau ci\_dessous montre
+cette répartition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{q1,projet}\SpecialCharTok{$}\NormalTok{q23)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(tab,}\AttributeTok{caption=}\StringTok{"Répartion des PME suivant le sexe et la région"}\NormalTok{,}\AttributeTok{escape=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrr@{}}
+\caption{Répartion des PME suivant le sexe et la région}\tabularnewline
+\toprule()
+& Femme & Homme \\
+\midrule()
+\endfirsthead
+\toprule()
+& Femme & Homme \\
+\midrule()
+\endhead
+Dakar & 0 & 1 \\
+Diourbel & 28 & 6 \\
+Fatick & 23 & 7 \\
+Kaffrine & 8 & 0 \\
+Kaolack & 20 & 1 \\
+Kolda & 4 & 5 \\
+Saint-Louis & 22 & 20 \\
+Sédhiou & 1 & 3 \\
+Thiès & 48 & 3 \\
+Ziguinchor & 37 & 13 \\
+\bottomrule()
+\end{longtable}
+
+Dans ce qui suit, il s'agit de voir la répartition des PME suivant
+l'activité principale et région. Le tableau ci-dessous montre cette
+répartition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{q1,projet}\SpecialCharTok{$}\NormalTok{q8)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(tab,}\AttributeTok{caption=}\StringTok{"Répartion des PME suivant l\textquotesingle{}activité principale et la région et la région"}\NormalTok{,}\AttributeTok{escape=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0393}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0197}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0557}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1049}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1377}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1443}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0951}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0918}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1180}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1213}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0721}}@{}}
+\caption{Répartion des PME suivant l'activité principale et la région et
+la région}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Aucun
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Autre a preciser
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Tansformation d'autres céréales
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation d'autres fruits et legumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation d'autres produits oléagineux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de l'arachide
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la mangue
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la noix de cajoux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la pomme de cajoux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation du riz
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Aucun
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Autre a preciser
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Tansformation d'autres céréales
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation d'autres fruits et legumes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation d'autres produits oléagineux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de l'arachide
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la mangue
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la noix de cajoux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation de la pomme de cajoux
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transformation du riz
+\end{minipage} \\
+\midrule()
+\endhead
+Dakar & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+Diourbel & 5 & 0 & 3 & 0 & 0 & 26 & 0 & 0 & 0 & 0 \\
+Fatick & 0 & 2 & 3 & 4 & 0 & 7 & 0 & 14 & 0 & 0 \\
+Kaffrine & 0 & 0 & 8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+Kaolack & 0 & 0 & 14 & 0 & 1 & 6 & 0 & 0 & 0 & 0 \\
+Kolda & 0 & 0 & 0 & 0 & 0 & 1 & 3 & 5 & 0 & 0 \\
+Saint-Louis & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 41 \\
+Sédhiou & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 2 & 1 & 0 \\
+Thiès & 0 & 0 & 28 & 9 & 0 & 7 & 4 & 0 & 0 & 3 \\
+Ziguinchor & 0 & 2 & 0 & 0 & 0 & 0 & 28 & 10 & 8 & 2 \\
+\bottomrule()
+\end{longtable}
+
+Dans cette partie, nous allons voir la répartiotion des PME suivant
+l'age et le sexe du responsable de la PME. Mais avant celà, il est
+necessaire de regrouper la variable age en tranche d'age pour faciliter
+l'analyse.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Age}\OtherTok{\textless{}{-}}\NormalTok{projet}\SpecialCharTok{$}\NormalTok{q24}\CommentTok{\# on récupere la varible qui contient l\textquotesingle{}age des dirigeants des PME}
+\NormalTok{points\_de\_coupe}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{60}\NormalTok{,}\ConstantTok{Inf}\NormalTok{)}\CommentTok{\# on définit les points de coupure }
+\NormalTok{tranche\_age}\OtherTok{\textless{}{-}}\FunctionTok{cut}\NormalTok{(Age,}\AttributeTok{breaks=}\NormalTok{points\_de\_coupe,}\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"0{-}30"}\NormalTok{,}\StringTok{"31{-}40"}\NormalTok{,}\StringTok{"41{-}50"}\NormalTok{,}\StringTok{"51{-}60"}\NormalTok{,}\StringTok{"61+"}\NormalTok{))}\CommentTok{\#on met la variable age sous forme de tranche d\textquotesingle{}age}
+\NormalTok{tab}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{q23,tranche\_age)}\CommentTok{\# puis on fait le croisement}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(tab,}\AttributeTok{caption=}\StringTok{"Répartion des PME suivant le sexe et l\textquotesingle{}age "}\NormalTok{,}\AttributeTok{escape=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrrrr@{}}
+\caption{Répartion des PME suivant le sexe et l'age}\tabularnewline
+\toprule()
+& 0-30 & 31-40 & 41-50 & 51-60 & 61+ \\
+\midrule()
+\endfirsthead
+\toprule()
+& 0-30 & 31-40 & 41-50 & 51-60 & 61+ \\
+\midrule()
+\endhead
+Femme & 3 & 20 & 42 & 59 & 67 \\
+Homme & 3 & 16 & 12 & 16 & 12 \\
+\bottomrule()
+\end{longtable}
+
+Dans cette section , il s'agira tout simplement de voir la répartition
+des PME suivant le nombre d'annees d'expérience et le niveau
+d'instruction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Nbr\_annee}\OtherTok{\textless{}{-}}\NormalTok{projet}\SpecialCharTok{$}\NormalTok{q26}
+\NormalTok{points\_de\_coupe}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{35}\NormalTok{,}\ConstantTok{Inf}\NormalTok{)}
+\NormalTok{tranche}\OtherTok{\textless{}{-}}\FunctionTok{cut}\NormalTok{(Nbr\_annee,}\AttributeTok{breaks=}\NormalTok{points\_de\_coupe,}\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"0{-}5"}\NormalTok{,}\StringTok{"6{-}15"}\NormalTok{,}\StringTok{"16{-}25"}\NormalTok{,}\StringTok{"26{-}35"}\NormalTok{,}\StringTok{"36+"}\NormalTok{))}
+\NormalTok{tab}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(projet}\SpecialCharTok{$}\NormalTok{q25,tranche)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(tab,}\AttributeTok{caption=}\StringTok{"Répartion des PME suivant le niveau d\textquotesingle{}instruction et le nombre d\textquotesingle{}années d\textquotesingle{}expérience "}\NormalTok{,}\AttributeTok{escape=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrrrr@{}}
+\caption{Répartion des PME suivant le niveau d'instruction et le nombre
+d'années d'expérience}\tabularnewline
+\toprule()
+& 0-5 & 6-15 & 16-25 & 26-35 & 36+ \\
+\midrule()
+\endfirsthead
+\toprule()
+& 0-5 & 6-15 & 16-25 & 26-35 & 36+ \\
+\midrule()
+\endhead
+Aucun niveau & 11 & 32 & 25 & 9 & 2 \\
+Niveau primaire & 16 & 20 & 10 & 8 & 2 \\
+Niveau secondaire & 15 & 33 & 17 & 6 & 3 \\
+Niveau Superieur & 20 & 13 & 7 & 0 & 1 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{partie-2}{%
+\subsection{Partie 2}\label{partie-2}}
+
+\hypertarget{netoyage-et-gestion-des-donnuxe9es}{%
+\subsection{Netoyage et gestion des
+données}\label{netoyage-et-gestion-des-donnuxe9es}}
+
+On importe d'abord la base avant de procéder au netoyage des données.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Base\_partie2}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Base\_Partie 2.xlsx"}\NormalTok{)}\CommentTok{\# on importe d\textquotesingle{}abord la base}
+\NormalTok{projet2}\OtherTok{\textless{}{-}}\FunctionTok{data.frame}\NormalTok{(Base\_partie2)}\CommentTok{\# création du dataframe projet2}
+\end{Highlighting}
+\end{Shaded}
+
+• Renommons la variable ``country\_destination'' en ``destination''et
+définissons les valeurs négatives comme manquantes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet2}\OtherTok{\textless{}{-}}\NormalTok{projet2}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{destination=}\StringTok{"country\_destination"}\NormalTok{)}\CommentTok{\# on renomme la country\_destination en destination}
+\NormalTok{projet2}\SpecialCharTok{$}\NormalTok{destination}\OtherTok{\textless{}{-}}\FunctionTok{ifelse}\NormalTok{(projet2}\SpecialCharTok{$}\NormalTok{destination}\SpecialCharTok{\textless{}}\DecValTok{0}\NormalTok{,}\ConstantTok{NA}\NormalTok{,projet2}\SpecialCharTok{$}\NormalTok{destination)}\CommentTok{\# on définit les valeurs négatives commes manquante}
+\end{Highlighting}
+\end{Shaded}
+
+• Créer une nouvelle variable contenant des tranches d'âge de 5 ans en
+utilisant la variable ``age''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Var}\OtherTok{\textless{}{-}}\NormalTok{projet2}\SpecialCharTok{$}\NormalTok{age}\CommentTok{\# on récupere la variable age dans la base projet2}
+\NormalTok{points\_de\_coupe}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{30}\NormalTok{,}\DecValTok{35}\NormalTok{,}\DecValTok{40}\NormalTok{,}\ConstantTok{Inf}\NormalTok{)}\CommentTok{\# definition des extremités de nos tranches d\textquotesingle{}age}
+\NormalTok{Ag}\OtherTok{\textless{}{-}}\FunctionTok{cut}\NormalTok{(Var,}\AttributeTok{breaks=}\NormalTok{points\_de\_coupe,}\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"5{-}10"}\NormalTok{,}\StringTok{"11{-}15"}\NormalTok{,}\StringTok{"16{-}20"}\NormalTok{,}\StringTok{"21{-}25"}\NormalTok{,}\StringTok{"26{-}30"}\NormalTok{,}\StringTok{"31{-}35"}\NormalTok{,}\StringTok{"36{-}40"}\NormalTok{,}\StringTok{"41+"}\NormalTok{))}\CommentTok{\# creation de la variable qui recupere les tranches d\textquotesingle{}age}
+\NormalTok{projet2}\OtherTok{\textless{}{-}}\NormalTok{projet2}\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# creation de la variable Age au niveau de projet2 en utilisant la variable Ag}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Age=}\NormalTok{Ag)}
+\end{Highlighting}
+\end{Shaded}
+
+• Créons une nouvelle variable contenant le nombre d'entretiens réalisés
+par chaque agent recenseur.
+
+\hypertarget{un-peu-de-cartographie}{%
+\subsection{3 Un peu de cartographie}\label{un-peu-de-cartographie}}
+
+\#\#3.1Transformation du dataframe en données géographiques Avant de
+tranformer notre data frame en données geographiques, on télécharge
+d'abord les données du sénégal sur le site gadm avec le format shapefile
+qui contient les données spatiales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{senegal }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{"gadm41\_SEN\_shp/gadm41\_SEN\_1.shp"}\NormalTok{)}\CommentTok{\# pour lire les fichiers spatiales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `gadm41_SEN_1' from data source 
+##   `C:\Users\user\Documents\Projet_R_2023_KA_Dieynaba\gadm41_SEN_shp\gadm41_SEN_1.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 14 features and 11 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -17.54319 ymin: 12.30786 xmax: -11.34247 ymax: 16.69207
+## Geodetic CRS:  WGS 84
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projet\_map}\OtherTok{\textless{}{-}}\FunctionTok{st\_as\_sf}\NormalTok{(projet,}\AttributeTok{coords=}\FunctionTok{c}\NormalTok{(}\StringTok{"gps\_menlongitude"}\NormalTok{,}\StringTok{"gps\_menlatitude"}\NormalTok{), }\AttributeTok{crs =}\FunctionTok{st\_crs}\NormalTok{(senegal))}\CommentTok{\# tranformation du dataframe en données géographiques}
+\NormalTok{projet\_map}\OtherTok{\textless{}{-}} \FunctionTok{st\_join}\NormalTok{(projet\_map, senegal)}\CommentTok{\# on joint les deux}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#3.2 Représentation spatiales des PME suivant le sexe Pour faire la
+représentation spatiale, on utise la fonction ggplot() qui est dans le
+package ggplot2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(newdata) }\SpecialCharTok{+}\CommentTok{\# on vas chercher les variables dans la base newdata,puis}
+  \FunctionTok{geom\_sf}\NormalTok{(}\AttributeTok{data=}\NormalTok{senegal) }\SpecialCharTok{+}\CommentTok{\# faire la représentation à partir de la carte du senegal}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gps\_menlongitude,}\AttributeTok{y=}\NormalTok{gps\_menlatitude, }\AttributeTok{color=}\NormalTok{sexe))}\SpecialCharTok{+}\CommentTok{\#on fait la représentation suivant la latitude et la longitude et on colorie suivant le sexe}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Répartition spatiale des PME suivant le sexe"}\NormalTok{,}\AttributeTok{x =} \StringTok{"gps\_menlongitude"}\NormalTok{,}\AttributeTok{y=}\StringTok{"gps\_menlatitude"}\NormalTok{)}\SpecialCharTok{+}\CommentTok{\# titre de notre carte}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rmarkdown_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\#\#3.3 Représentation spatiales des PME suivant le niveau d'instruction
+Renommons d'abord la variable q25 en Niveau d'instruction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{newdata}\OtherTok{\textless{}{-}}\NormalTok{newdata}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{Niveau\_instruction=}\NormalTok{q25)}
+\end{Highlighting}
+\end{Shaded}
+
+On applique le même procédé que précédemment sauf que à la place de la
+variable sexe on a la variable Niveau\_instruction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(newdata)}\SpecialCharTok{+}
+  \FunctionTok{geom\_sf}\NormalTok{(}\AttributeTok{data=}\NormalTok{senegal) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gps\_menlongitude,}\AttributeTok{y=}\NormalTok{gps\_menlatitude, }\AttributeTok{color=}\NormalTok{Niveau\_instruction))}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Répartition spatiale des PME suivant le niveau d\textquotesingle{}instruction"}\NormalTok{,}\AttributeTok{x =} \StringTok{"gps\_menlongitude"}\NormalTok{,}\AttributeTok{y=}\StringTok{"gps\_menlatitude"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{rmarkdown_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\#\#3.4 Faisons une analyse spatiale de notre choix La répartition
+spatiale des PME suivant le sexe montre que les PME sont majoritairement
+dirigés par des femmes et ce phénoméne est plus visible dans les Régions
+de THIES, DIOURBEl,et ZIGUINCHOR, par contre dans la région de
+SAINT\_LOUIS on note une répatition presque identique suivant les deux
+sexes. Il ressort également des résultats que les PME dans les régions
+de KAFFRINE et KAOLACK sont uniquement dirigés par les femmes. La
+répartition spatiale des PME suivant le niveau d'instruction montre que
+les PME dont le dirigeants n'a pas fait détude sont plus visibles dans
+les régions de THIES et DIOURBEl,par celles dont les dirigeants a un
+niveau supérieur sont plus visibles dans les régions de
+DAKAR,SAINT\_LOUIS et ZIGUINCHOR. Il ressort également des résultats que
+dans la région de KOLDA la majorité des PME le dirigeant n'a fait que
+des études primaires.
+
+\end{document}
